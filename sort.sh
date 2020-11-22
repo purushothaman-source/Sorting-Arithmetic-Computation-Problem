@@ -11,26 +11,11 @@ echo "Result3:$result3"
 result4=$((num1%num2+num3))
 echo "Result4:$result4"
 declare -A  values=( [0]=$result1 [1]=$result2 [2]=$result3 [3]=$result4 )
-echo "Stored numbers:${values[@]}"
-for ((i = 0; i<${#values[@]}; i++))
+echo "Stored numbers in Dictionary:${values[@]}"
+for key in "${!values[@]}"
 do
-
-        for((j = 0; j<${#values[@]}-i-1; j++))
-        do
-
-                if [[ ${values[j]} -gt ${values[$((j+1))]} ]]
-                then
-                        # swap
-                        temp=${values[j]}
-                        values[$j]=${values[$((j+1))]}
-                        values[$((j+1))]=$temp
-                fi
-        done
+    
+        arr[i]="${values[$key]}"
+       ((i++))
 done
-
-echo "Array in decending order :"
-dec[0]=${values[3]}
-dec[1]=${values[2]}
-dec[2]=${values[1]}
-dec[3]=${values[0]}
-echo ${dec[@]}
+echo "stored in array :${arr[@]}"
