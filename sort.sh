@@ -6,3 +6,5 @@ result1=$((num1+num2*num3))
 echo "Result1:$result1"
 result2=$((num1*num2+num3))
 echo "Result2:$result2"
+result3=$(echo $num1 $num2 $num3 |awk '{ print $3+$1/$2}')
+echo "Result3:$result3"
